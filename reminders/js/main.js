@@ -10,7 +10,7 @@ let removeButtons = document.querySelectorAll('.remove');
 
 function returned(data) {
     console.log(data);
-    if (data == "success") {
+    if (data.includes("success")) {
         location.reload(true);
     }
 }
