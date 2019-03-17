@@ -1,0 +1,94 @@
+/*
+font-family: 'Francois One', sans-serif;
+font-family: 'Open Sans', sans-serif;
+*/
+.wrapper{
+    width:100%;
+    min-height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.list{
+    margin:10px;
+    width:720px;
+    background-color: rgba(255,255,255,.25);
+    border-radius:10px;
+    box-shadow:3px 7px 15px rgba(0,0,0,.25);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    min-height:300px;
+}
+input{
+    margin:10px;
+    border:none;
+    background-color: rgba(0,0,0,.0);
+    color:none;
+    width:50%;
+    height:30px;
+    text-align:center;
+    font-family: 'Open Sans', sans-serif;
+    border-bottom:5px solid rgba(0,0,0,.5);
+}
+label{
+    font-family: 'Francois One', sans-serif;
+    color:rgba(0,0,0,.75);
+    font-size:1.5rem;
+    margin-top:10px;
+}
+.submit{
+    width:100px;
+    height:40px;
+    margin:10px;
+    border:none;
+    background-color: rgba(255,255,255,.75);
+    color:rgba(0,0,0,.75);
+    font-family: 'Francois One', sans-serif;
+    font-size:1.25rem;
+    cursor: pointer;
+    transition:.2s;
+}
+.submit:hover{
+    background-color: rgba(255,255,255,.60);
+}
+.items{
+    width:500px;
+    background-color: white;
+    padding:20px;
+    box-shadow:3px 7px 15px rgba(0,0,0,.25);
+}
+.items table{
+    width:100%;
+    font-family: 'Open Sans', sans-serif;
+}
+.items table thead tr th{
+    border-bottom:3px solid rgba(0,0,0,.75);
+    vertical-align: middle;
+}
+.items table tbody tr td{
+    text-align: center;
+    vertical-align: middle;
+}
+.delete,.complete,.reset,.remove{
+    margin-left:5px;
+    margin-right:5px;
+    cursor: pointer;
+    text-decoration:none;
+}
+@media (max-width:800px){
+    .list{
+        width:90%;
+    }
+    .items{
+        width:85%;
+    }
+}
+.completion1{
+    background-color:rgb(166, 201, 166);
+}
+.completion2{
+    background-color:rgb(255, 198, 198);
+}

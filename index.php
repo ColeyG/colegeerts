@@ -1,0 +1,2 @@
+<?php
+echo "<h1>Hey! Thanks for visiting my site! Currently using this space for an entirely different purpose since I <i>actually</i> have a job now. Nevertheless, I am appreciative of your interest. Reach me at cole@colegeerts.com</h1>";
