@@ -2,7 +2,7 @@
     $id=$_GET['id'];
     $code=$_GET['code'];
 
-    require_once('connect.php');
+    require('../../core-conf.php');
 
     $delS="UPDATE tbl_todo SET completion={$code} WHERE todo_id = {$id}";
     if($code==3){$delS="DELETE FROM tbl_todo WHERE todo_id = {$id}";}

@@ -1,5 +1,5 @@
 <?php
-    require_once('php/connect.php');
+    require_once('../core-conf.php');
     
     $todosS='SELECT * FROM tbl_todo where completion = 0 order by sort ASC';
     $todosQ=mysqli_query($link,$todosS);
