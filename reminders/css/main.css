@@ -71,6 +71,7 @@ label{
 .items table tbody tr td{
     text-align: center;
     vertical-align: middle;
+    min-width:30px;
 }
 .delete,.complete,.reset,.remove{
     margin-left:5px;
