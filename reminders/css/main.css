@@ -71,7 +71,9 @@ label{
 .items table tbody tr td{
     text-align: center;
     vertical-align: middle;
-    min-width:30px;
+    max-width:100px;
+    overflow:hidden;
+    text-overflow: ellipsis;
 }
 .delete,.complete,.reset,.remove{
     margin-left:5px;
@@ -97,12 +99,5 @@ label{
     .list-icon{
         width:18px;
         height:18px;
-    }
-}
-
-@media (max-width:282px){
-    .list-icon{
-        width:12px;
-        height:12px;
     }
 }
