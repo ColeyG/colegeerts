@@ -72,7 +72,6 @@ label{
     text-align: center;
     vertical-align: middle;
     max-width:100px;
-    overflow:hidden;
     text-overflow: ellipsis;
 }
 .delete,.complete,.reset,.remove{
