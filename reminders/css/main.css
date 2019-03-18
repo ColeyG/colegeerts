@@ -92,3 +92,9 @@ label{
 .completion2{
     background-color:rgb(255, 198, 198);
 }
+@media (max-width:420px){
+    .list-icon{
+        width:12px;
+        height:12px;
+    }
+}
