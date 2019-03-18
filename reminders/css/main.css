@@ -68,9 +68,6 @@ label{
     border-bottom:3px solid rgba(0,0,0,.75);
     vertical-align: middle;
 }
-.items table tbody tr td {
-    padding:2px;
-}
 .items table tbody tr td{
     text-align: center;
     vertical-align: middle;
@@ -96,6 +93,13 @@ label{
     background-color:rgb(255, 198, 198);
 }
 @media (max-width:420px){
+    .list-icon{
+        width:18px;
+        height:18px;
+    }
+}
+
+@media (max-width:282px){
     .list-icon{
         width:12px;
         height:12px;
