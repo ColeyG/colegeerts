@@ -1,5 +1,5 @@
 core-conf.php
 reminders/error_log
 reminders/php/error_log
+node_modules
 .sass-cache
-/node_modules
