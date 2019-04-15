@@ -3,3 +3,4 @@ reminders/error_log
 reminders/php/error_log
 node_modules
 .sass-cache
+styles/main.css.map
