@@ -96,6 +96,7 @@
             </table>
         </div>
     </section>
+    <script src='js/sortable.js'></script>
     <script src='js/coldAjax.js'></script>
     <script src='js/main.js'></script>
 </body>
