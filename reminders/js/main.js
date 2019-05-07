@@ -56,3 +56,8 @@ resetButtons.forEach(element => {
 removeButtons.forEach(element => {
     element.addEventListener("click", removeItem, false);
 });
+
+new Sortable(document.querySelector("#todo-sortable"), {
+    animation: 150,
+    ghostClass: 'blue-background-class'
+});

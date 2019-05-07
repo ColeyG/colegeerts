@@ -30,39 +30,24 @@
             <button id="submit" class="submit">Submit</button>
         </div>
         <div class="items">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Items</th>
-                        <th>Time</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <?php
-                        while($row = mysqli_fetch_array($todosQ)){
-                            echo "<tr>";
-                            echo "<td>";
-                            echo $row['todo_thing'];
-                            echo "</td>";
-                            echo "<td>";
-                            echo $row['todo_time'];
-                            echo "</td>";
-                            echo "<td>";
+            <ul id="todo-sortable">
+                <?php
+                    while($row = mysqli_fetch_array($todosQ)){
+                        echo "<li>";
+                        echo $row['todo_thing'];
+                        echo $row['todo_time'];
+                        echo "<div>";
                             echo "<a href='#' class='delete' id='";
                             echo $row['todo_id'];
                             echo "'><img class='list-icon' src='images/cross.svg'></a>";
                             echo "<a href='#' class='complete' id='";
                             echo $row['todo_id'];
                             echo "'><img class='list-icon' src='images/check.svg'></a>";
-                            echo "</td>";
-                            echo "</tr>";
-                        }
-                    ?>
-                    </tr>
-                </tbody>
-            </table>
+                        echo "</div>";
+                        echo "</li>";
+                    }
+                ?>
+            </ul>
         </div>
         <div class="items">
             <table>
