@@ -83,6 +83,7 @@ label{
     justify-content: space-between;
     flex-direction: row;
     padding: 2px 7px;
+    font-family: 'Open Sans', sans-serif;
 }
 .items ul li:nth-child(even) {
     background-color: #e0e0e0;
