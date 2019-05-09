@@ -36,7 +36,22 @@ function removeItem(e) {
 }
 
 function submitAct() {
-    coldAjax("GET", "php/sendVal.php?thing=" + thing.value + "&time=" + time.value, returned)
+    coldAjax("GET", "php/sendVal.php?thing=" + thing.value + "&time=" + time.value, returned);
+}
+
+function saveAll() {
+    let allItems = document.querySelectorAll('.items ul li');
+    let sortVal = 0;
+    console.log(allItems);
+    allItems.forEach((element) => {
+        sortVal++;
+        let sort = element.id.replace('li', '');
+        coldAjax("GET", "php/sort.php?sort=" + sort + "&sortVal=" + sortVal, sortCallback);
+    });
+}
+
+function sortCallback(data) {
+    console.log(data);
 }
 
 submit.addEventListener("click", submitAct, false);
@@ -59,5 +74,22 @@ removeButtons.forEach(element => {
 
 new Sortable(document.querySelector("#todo-sortable"), {
     animation: 150,
-    ghostClass: 'blue-background-class'
+    ghostClass: 'blue-background-class',
+    store: {
+        set: () => {
+            saveAll();
+        },
+    },
+    dataIdAttr: 'data-id',
+});
+
+new Sortable(document.querySelector("#done-sortable"), {
+    animation: 150,
+    ghostClass: 'blue-background-class',
+    store: {
+        set: () => {
+            saveAll();
+        },
+    },
+    dataIdAttr: 'data-id',
 });

@@ -1,14 +1,15 @@
 <?php
-    $thing=$_GET['thing'];
-    $time=$_GET['time'];
+    $thing=$_GET['sort'];
+    $sortVal=$_GET['sortVal'];
 
     include('../../core-conf.php');
 
     if (trim($thing)!=""){
-        $subS="INSERT INTO tbl_todo VALUES(null,'{$thing}','{$time}',NULL,0)";
+    $subS="UPDATE tbl_todo SET `sort`='{$sortVal}' where `todo_id`='{$thing}'";
         $subQ=mysqli_query($link,$subS);
     }
 
+    echo $subS;
     if($subQ){
         echo 'success';
     }else{

@@ -33,7 +33,9 @@
             <ul id="todo-sortable">
                 <?php
                     while($row = mysqli_fetch_array($todosQ)){
-                        echo "<li>";
+                        echo "<li id='li";
+                        echo $row['todo_id'];
+                        echo "'>";
                         echo $row['todo_thing'];
                         echo $row['todo_time'];
                         echo "<div>";
@@ -50,35 +52,29 @@
             </ul>
         </div>
         <div class="items">
-            <table>
-                <thead>
-                    
-                </thead>
-                <tbody>
-                    <tr>
-                    <?php
-                        while($row = mysqli_fetch_array($completedQ)){
-                            echo "<tr class='completion".$row['completion']."'>";
-                            echo "<td>";
-                            echo $row['todo_thing'];
-                            echo "</td>";
-                            echo "<td>";
-                            echo $row['todo_time'];
-                            echo "</td>";
-                            echo "<td>";
-                            echo "<a href='#' class='remove' id='";
-                            echo $row['todo_id'];
-                            echo "'><img class='list-icon' src='images/delete.svg'></a>";
-                            echo "<a href='#' class='reset' id='";
-                            echo $row['todo_id'];
-                            echo "'><img class='list-icon' src='images/up.svg'></a>";
-                            echo "</td>";
-                            echo "</tr>";
-                        }
-                    ?>
-                    </tr>
-                </tbody>
-            </table>
+            <ul id="done-sortable">
+            <?php
+                while($row = mysqli_fetch_array($completedQ)){
+                    echo "<li id='li";
+                    echo $row['todo_id'];
+                    echo "'";
+                    echo " class='comp";
+                    echo $row['completion'];
+                    echo "'>";
+                    echo $row['todo_thing'];
+                    echo $row['todo_time'];
+                    echo "<div>";
+                        echo "<a href='#' class='remove' id='";
+                        echo $row['todo_id'];
+                        echo "'><img class='list-icon' src='images/delete.svg'></a>";
+                        echo "<a href='#' class='reset' id='";
+                        echo $row['todo_id'];
+                        echo "'><img class='list-icon' src='images/up.svg'></a>";
+                    echo "</div>";
+                    echo "</li>";
+                }
+            ?>
+            </ul>        
         </div>
     </section>
     <script src='js/sortable.js'></script>

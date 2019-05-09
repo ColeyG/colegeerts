@@ -78,15 +78,26 @@ label{
     width:100%;
 }
 .items ul li {
-    width:100%;
     display:flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    padding: 2px;
+    padding: 2px 7px;
 }
 .items ul li:nth-child(even) {
     background-color: #e0e0e0;
+}
+.items ul .comp1:nth-child(even) {
+    background-color:#32e55f;
+}
+.items ul .comp1:nth-child(odd) {
+    background-color:#75f495;
+}
+.items ul .comp2:nth-child(even) {
+    background-color:#ff4c4c;
+}
+.items ul .comp2:nth-child(odd) {
+    background-color:#ff8e8e;
 }
 .delete,.complete,.reset,.remove{
     margin-left:5px;
