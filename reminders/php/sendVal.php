@@ -5,7 +5,7 @@
     include('../../core-conf.php');
 
     if (trim($thing)!=""){
-        $subS="INSERT INTO tbl_todo VALUES(null,'{$thing}','{$time}',NULL,0)";
+        $subS="INSERT INTO tbl_todo VALUES(null,'{$thing}','{$time}',0,0)";
         $subQ=mysqli_query($link,$subS);
     }
 
