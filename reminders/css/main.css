@@ -129,3 +129,6 @@ label{
 .handle {
     display: inline;
 }
+.items-selectors {
+    min-width: 100px;
+}

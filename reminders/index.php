@@ -38,7 +38,7 @@
                         echo "'>";
                         echo $row['todo_thing'];
                         echo $row['todo_time'];
-                        echo "<div>";
+                        echo "<div class='items-selectors'>";
                             echo "<a href='#' class='delete' id='";
                             echo $row['todo_id'];
                             echo "'><img class='list-icon' src='images/cross.svg'></a>";
@@ -64,7 +64,7 @@
                     echo "'>";
                     echo $row['todo_thing'];
                     echo $row['todo_time'];
-                    echo "<div>";
+                    echo "<div class='items-selectors'>";
                         echo "<a href='#' class='remove' id='";
                         echo $row['todo_id'];
                         echo "'><img class='list-icon' src='images/delete.svg'></a>";
