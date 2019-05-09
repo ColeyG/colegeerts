@@ -81,6 +81,7 @@ new Sortable(document.querySelector("#todo-sortable"), {
         },
     },
     dataIdAttr: 'data-id',
+    handle: '.handle',
 });
 
 new Sortable(document.querySelector("#done-sortable"), {
@@ -92,4 +93,5 @@ new Sortable(document.querySelector("#done-sortable"), {
         },
     },
     dataIdAttr: 'data-id',
+    handle: '.handle',
 });

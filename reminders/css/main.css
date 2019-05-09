@@ -126,3 +126,6 @@ label{
         height:18px;
     }
 }
+.handle {
+    display: inline;
+}

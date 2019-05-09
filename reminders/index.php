@@ -45,6 +45,7 @@
                             echo "<a href='#' class='complete' id='";
                             echo $row['todo_id'];
                             echo "'><img class='list-icon' src='images/check.svg'></a>";
+                            echo "<p class='handle'>↕️<p>";
                         echo "</div>";
                         echo "</li>";
                     }
@@ -70,6 +71,7 @@
                         echo "<a href='#' class='reset' id='";
                         echo $row['todo_id'];
                         echo "'><img class='list-icon' src='images/up.svg'></a>";
+                        echo "<p class='handle'>↕️<p>";
                     echo "</div>";
                     echo "</li>";
                 }
