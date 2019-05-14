@@ -132,3 +132,6 @@ label{
 .items-selectors {
     min-width: 100px;
 }
+.time {
+    background-color: bisque;
+}

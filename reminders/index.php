@@ -35,9 +35,10 @@
                     while($row = mysqli_fetch_array($todosQ)){
                         echo "<li id='li";
                         echo $row['todo_id'];
-                        echo "'>";
+                        echo "'><p>";
                         echo $row['todo_thing'];
-                        echo $row['todo_time'];
+                        if ($row['todo_time']) {echo " - <span class='time'>";}
+                        echo $row['todo_time']."</span></p>";
                         echo "<div class='items-selectors'>";
                             echo "<a href='#' class='delete' id='";
                             echo $row['todo_id'];
@@ -45,7 +46,7 @@
                             echo "<a href='#' class='complete' id='";
                             echo $row['todo_id'];
                             echo "'><img class='list-icon' src='images/check.svg'></a>";
-                            echo "<p class='handle'>↕️<p>";
+                            echo "<img class='handle list-icon' src='images/reorder.svg' />";
                         echo "</div>";
                         echo "</li>";
                     }
@@ -63,7 +64,6 @@
                     echo $row['completion'];
                     echo "'>";
                     echo $row['todo_thing'];
-                    echo $row['todo_time'];
                     echo "<div class='items-selectors'>";
                         echo "<a href='#' class='remove' id='";
                         echo $row['todo_id'];
@@ -71,7 +71,7 @@
                         echo "<a href='#' class='reset' id='";
                         echo $row['todo_id'];
                         echo "'><img class='list-icon' src='images/up.svg'></a>";
-                        echo "<p class='handle'>↕️<p>";
+                        echo "<img class='handle list-icon' src='images/reorder.svg' />";
                     echo "</div>";
                     echo "</li>";
                 }
