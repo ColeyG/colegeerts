@@ -1,5 +1,6 @@
 <?php
 require_once '../core-conf.php';
+require_once 'autoloader.php';
 
 $todosS = 'SELECT * FROM tbl_todo where completion = 0 order by sort ASC';
 $todosQ = mysqli_query($link, $todosS);
@@ -8,6 +9,9 @@ $completedS = 'SELECT * FROM tbl_todo where completion != 0 order by sort ASC';
 $completedQ = mysqli_query($link, $completedS);
 
 mysqli_close($link);
+
+// Using the autoloader to call like the below works now
+// echo Bing::hello();
 ?>
 <!DOCTYPE html>
 <html lang='en'>
@@ -63,25 +67,6 @@ mysqli_close($link);
                 </div>
             </li>
             <?php endwhile; ?>
-            <!-- <?php while ($row = mysqli_fetch_array($completedQ)) {
-              echo "<li id='li";
-              echo $row['todo_id'];
-              echo "'";
-              echo " class='comp";
-              echo $row['completion'];
-              echo "'>";
-              echo $row['todo_thing'];
-              echo "<div class='items-selectors'>";
-              echo "<a href='#' class='remove' id='";
-              echo $row['todo_id'];
-              echo "'><img class='list-icon' src='images/delete.svg'></a>";
-              echo "<a href='#' class='reset' id='";
-              echo $row['todo_id'];
-              echo "'><img class='list-icon' src='images/up.svg'></a>";
-              echo "<img class='handle list-icon' src='images/reorder.svg' />";
-              echo "</div>";
-              echo "</li>";
-            } ?> -->
             </ul>        
         </div>
     </section>
