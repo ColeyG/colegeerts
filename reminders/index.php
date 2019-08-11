@@ -1,13 +1,13 @@
 <?php
-    require_once('../core-conf.php');
-    
-    $todosS='SELECT * FROM tbl_todo where completion = 0 order by sort ASC';
-    $todosQ=mysqli_query($link,$todosS);
+require_once '../core-conf.php';
 
-    $completedS='SELECT * FROM tbl_todo where completion != 0 order by sort ASC';
-    $completedQ=mysqli_query($link,$completedS);
+$todosS = 'SELECT * FROM tbl_todo where completion = 0 order by sort ASC';
+$todosQ = mysqli_query($link, $todosS);
 
-    mysqli_close($link);
+$completedS = 'SELECT * FROM tbl_todo where completion != 0 order by sort ASC';
+$completedQ = mysqli_query($link, $completedS);
+
+mysqli_close($link);
 ?>
 <!DOCTYPE html>
 <html lang='en'>
@@ -30,52 +30,58 @@
             <button id="submit" class="submit">Submit</button>
         </div>
         <div class="items">
-            <ul id="todo-sortable">
-                <?php
-                    while($row = mysqli_fetch_array($todosQ)){
-                        echo "<li id='li";
-                        echo $row['todo_id'];
-                        echo "'><p>";
-                        echo $row['todo_thing'];
-                        if ($row['todo_time']) {echo " - <span class='time'>";}
-                        echo $row['todo_time']."</span></p>";
-                        echo "<div class='items-selectors'>";
-                            echo "<a href='#' class='delete' id='";
-                            echo $row['todo_id'];
-                            echo "'><img class='list-icon' src='images/cross.svg'></a>";
-                            echo "<a href='#' class='complete' id='";
-                            echo $row['todo_id'];
-                            echo "'><img class='list-icon' src='images/check.svg'></a>";
-                            echo "<img class='handle list-icon' src='images/reorder.svg' />";
-                        echo "</div>";
-                        echo "</li>";
-                    }
-                ?>
+            <ul id="todo-sortable">    
+            <?php while ($row = mysqli_fetch_array($todosQ)): ?>
+            <li id="li<?= $row['todo_id'] ?>">
+                <p><?= $row['todo_thing'] ?>
+                <?php if ($row['todo_time']) {
+                  echo " - <span class='time'>" . $row['todo_time'] . "</span>";
+                } ?>
+                </p>
+                <div class='items-selectors'>
+                    <a href='#' class='delete' id='<?= $row['todo_id'] ?>'><img class='list-icon' src='images/cross.svg'></a>
+                    <a href='#' class='complete' id='<?= $row['todo_id'] ?>'><img class='list-icon' src='images/check.svg'></a>
+                    <img class='handle list-icon' src='images/reorder.svg' />
+                </div>
+                </li>
+            <?php endwhile; ?>
             </ul>
         </div>
         <div class="items">
             <ul id="done-sortable">
-            <?php
-                while($row = mysqli_fetch_array($completedQ)){
-                    echo "<li id='li";
-                    echo $row['todo_id'];
-                    echo "'";
-                    echo " class='comp";
-                    echo $row['completion'];
-                    echo "'>";
-                    echo $row['todo_thing'];
-                    echo "<div class='items-selectors'>";
-                        echo "<a href='#' class='remove' id='";
-                        echo $row['todo_id'];
-                        echo "'><img class='list-icon' src='images/delete.svg'></a>";
-                        echo "<a href='#' class='reset' id='";
-                        echo $row['todo_id'];
-                        echo "'><img class='list-icon' src='images/up.svg'></a>";
-                        echo "<img class='handle list-icon' src='images/reorder.svg' />";
-                    echo "</div>";
-                    echo "</li>";
-                }
-            ?>
+            <?php while ($row = mysqli_fetch_array($completedQ)): ?>
+            <li id="li<?= $row['todo_id'] ?>" class="comp<?= $row['completion'] ?>">
+                <p><?= $row['todo_thing'] ?>
+                <?php if ($row['todo_time']) {
+                  echo " - <span class='time'>" . $row['todo_time'] . "</span>";
+                } ?>
+                </p>
+                <div class='items-selectors'>
+                    <a href='#' class='remove' id='<?= $row['todo_id'] ?>'><img class='list-icon' src='images/delete.svg'></a>
+                    <a href='#' class='reset' id='<?= $row['todo_id'] ?>'><img class='list-icon' src='images/up.svg'></a>
+                    <img class='handle list-icon' src='images/reorder.svg' />
+                </div>
+            </li>
+            <?php endwhile; ?>
+            <!-- <?php while ($row = mysqli_fetch_array($completedQ)) {
+              echo "<li id='li";
+              echo $row['todo_id'];
+              echo "'";
+              echo " class='comp";
+              echo $row['completion'];
+              echo "'>";
+              echo $row['todo_thing'];
+              echo "<div class='items-selectors'>";
+              echo "<a href='#' class='remove' id='";
+              echo $row['todo_id'];
+              echo "'><img class='list-icon' src='images/delete.svg'></a>";
+              echo "<a href='#' class='reset' id='";
+              echo $row['todo_id'];
+              echo "'><img class='list-icon' src='images/up.svg'></a>";
+              echo "<img class='handle list-icon' src='images/reorder.svg' />";
+              echo "</div>";
+              echo "</li>";
+            } ?> -->
             </ul>        
         </div>
     </section>
