@@ -19,26 +19,26 @@ function returned(data) {
 // Actions
 function deleteItem(e) {
   e.preventDefault();
-  coldAjax("GET", "ajaxScriptsdelete.php?id=" + this.id + "&code=2", returned);
+  coldAjax("GET", "ajaxScripts/delete.php?id=" + this.id + "&code=2", returned);
 }
 
 function successItem(e) {
   e.preventDefault();
-  coldAjax("GET", "ajaxScriptsdelete.php?id=" + this.id + "&code=1", returned);
+  coldAjax("GET", "ajaxScripts/delete.php?id=" + this.id + "&code=1", returned);
 }
 
 function resetItem(e) {
   e.preventDefault();
-  coldAjax("GET", "ajaxScriptsdelete.php?id=" + this.id + "&code=0", returned);
+  coldAjax("GET", "ajaxScripts/delete.php?id=" + this.id + "&code=0", returned);
 }
 
 function removeItem(e) {
   e.preventDefault();
-  coldAjax("GET", "ajaxScriptsdelete.php?id=" + this.id + "&code=3", returned);
+  coldAjax("GET", "ajaxScripts/delete.php?id=" + this.id + "&code=3", returned);
 }
 
 function submitAct() {
-  coldAjax("GET", "ajaxScriptssendVal.php?thing=" + thing.value + "&time=" + time.value, returned);
+  coldAjax("GET", "ajaxScripts/sendVal.php?thing=" + thing.value + "&time=" + time.value, returned);
 }
 
 function saveAll() {
@@ -48,7 +48,7 @@ function saveAll() {
   allItems.forEach(element => {
     sortVal++;
     let sort = element.id.replace("li", "");
-    coldAjax("GET", "ajaxScriptssort.php?sort=" + sort + "&sortVal=" + sortVal, sortCallback);
+    coldAjax("GET", "ajaxScripts/sort.php?sort=" + sort + "&sortVal=" + sortVal, sortCallback);
   });
 }
 
