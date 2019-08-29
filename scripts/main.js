@@ -20,12 +20,3 @@ anime({
   loop: true,
   easing: "cubicBezier(" + bezier + ")",
 });
-
-// let images = document.querySelectorAll(".cardCold img");
-
-// images.forEach(element => {
-//   element.parentNode.style.backgroundImage = "url(" + element.src + ")";
-//   element.style.display = "none";
-// });
-
-// console.log(images);
