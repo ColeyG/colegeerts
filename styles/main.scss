@@ -189,6 +189,13 @@ body {
 }
 
 .contact {
+  width: 420px;
+  @media screen and (max-width: $break-small) {
+    width: 320px;
+  }
+  @media screen and (max-width: $break-xsmall) {
+    width: 220px;
+  }
   p,
   a,
   label {
