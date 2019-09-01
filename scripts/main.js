@@ -46,7 +46,7 @@ const pageSwitch = page => {
 
     removeClass(document.querySelector("." + page), "sec-hidden");
     wrapper.style.opacity = 1;
-  }, 1000);
+  }, 500);
 };
 
 pageButtons.forEach(element => {
