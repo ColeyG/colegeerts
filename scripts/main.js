@@ -24,7 +24,8 @@ anime({
 let images = document.querySelectorAll(".cardCold img"),
   pageButtons = document.querySelectorAll(".js-page-switch"),
   contactClose = document.querySelectorAll(".js-contact-close"),
-  wrapper = document.querySelector(".wrapper");
+  wrapper = document.querySelector(".wrapper"),
+  contactButton = document.querySelector(".contact-form-confirm");
 
 const addClass = (element, cssClass) => {
   element.className = element.className + " " + cssClass;
@@ -49,6 +50,15 @@ const pageSwitch = page => {
   }, 500);
 };
 
+const submitContactResponse = data => {
+  console.log(data);
+};
+
+const submitContact = () => {
+  coldAjax("GET", "ajaxScripts/mail.php", submitContactResponse);
+};
+
+//Event Listeners
 pageButtons.forEach(element => {
   element.addEventListener(
     "click",
@@ -63,3 +73,5 @@ images.forEach(element => {
   element.parentNode.style.backgroundImage = "url(" + element.src + ")";
   element.remove();
 });
+
+contactButton.addEventListener("click", submitContact, false);
