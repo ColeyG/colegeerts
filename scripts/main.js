@@ -68,11 +68,11 @@ const pageAlert = alertText => {
 };
 
 const submitContactResponse = data => {
-  if (data === "success") {
+  if (data.includes("success")) {
     console.log("success mail submission");
     pageAlert("Sent Message");
     pageSwitch("main-content");
-  } else if (data === "failed") {
+  } else if (data.includes("failed")) {
     console.log("failed mail submission");
     pageAlert("Failed to Send Message");
   }
