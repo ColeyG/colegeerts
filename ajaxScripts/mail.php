@@ -9,8 +9,7 @@ $message = $_GET["message"];
 $subject = $email ." - Message from your DotCom.";
 $body = $name . " at " . $email . " says: " . $message;
 
-//echo($to . " " . $name . " " . $email . " " . $message);
-
+//TODO: add actual validation here
 if ($name !== "" && $email !== "" && $message !== "") {
     if(mail($to, $subject, $body)){
         echo "success";

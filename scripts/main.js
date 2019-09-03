@@ -84,6 +84,7 @@ const submitContact = () => {
   let email = document.querySelector("#email").value;
   let message = document.querySelector("#message").value;
 
+  //TODO: Add actual validation here
   coldAjax("GET", "ajaxScripts/mail.php?name=" + name + "&email=" + email + "&message=" + message, submitContactResponse);
 };
 
