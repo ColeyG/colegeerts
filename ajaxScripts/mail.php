@@ -11,8 +11,13 @@ $body = $name . " at " . $email . " says: " . $message;
 
 //echo($to . " " . $name . " " . $email . " " . $message);
 
-if(mail($to, $subject, $body)){
-    echo "success";
+if ($name !== "" && $email !== "" && $message !== "") {
+    if(mail($to, $subject, $body)){
+        echo "success";
+    } else {
+        echo "failed";
+    }
 } else {
     echo "failed";
 }
+

@@ -72,10 +72,11 @@ const submitContactResponse = data => {
     console.log("success mail submission");
     pageAlert("Sent Message");
     pageSwitch("main-content");
-  } else if (data === "failure") {
+  } else if (data === "failed") {
     console.log("failed mail submission");
     pageAlert("Failed to Send Message");
   }
+  console.log(data);
 };
 
 const submitContact = () => {
