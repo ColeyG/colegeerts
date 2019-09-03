@@ -25,7 +25,12 @@ let images = document.querySelectorAll(".cardCold img"),
   pageButtons = document.querySelectorAll(".js-page-switch"),
   contactClose = document.querySelectorAll(".js-contact-close"),
   wrapper = document.querySelector(".wrapper"),
-  contactButton = document.querySelector(".contact-form-confirm");
+  contactButton = document.querySelector(".contact-form-confirm"),
+  alertPopup = document.querySelector(".alert-popup");
+
+const config = {
+  pageTimer: 500,
+};
 
 const addClass = (element, cssClass) => {
   element.className = element.className + " " + cssClass;
@@ -47,11 +52,30 @@ const pageSwitch = page => {
 
     removeClass(document.querySelector("." + page), "sec-hidden");
     wrapper.style.opacity = 1;
-  }, 500);
+  }, config.pageTimer);
+};
+
+const pageAlert = alertText => {
+  console.log(alertText);
+  setTimeout(() => {
+    let alertPopupText = document.querySelector(".alert-popup-text");
+    alertPopupText.innerHTML = alertText;
+    alertPopup.style.bottom = 100 + "px";
+    setTimeout(() => {
+      alertPopup.style.bottom = -150 + "px";
+    }, config.pageTimer * 4);
+  }, config.pageTimer * 2);
 };
 
 const submitContactResponse = data => {
-  console.log(data);
+  if (data === "success") {
+    console.log("success mail submission");
+    pageAlert("Sent Message");
+    pageSwitch("main-content");
+  } else if (data === "failure") {
+    console.log("failed mail submission");
+    pageAlert("Failed to Send Message");
+  }
 };
 
 const submitContact = () => {
