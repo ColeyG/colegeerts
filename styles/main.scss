@@ -2,6 +2,7 @@ $break-med: 1000px;
 $break-small: 500px;
 $break-xsmall: 350px;
 
+$white: white;
 $confirm-green: #cae7b9;
 $cancel-red: #eb9486;
 $alert-black: #3c3c3c;
@@ -9,7 +10,7 @@ $alert-black: #3c3c3c;
 @mixin playfair() {
   font-family: "Playfair Display", serif;
   font-size: 5rem;
-  color: white;
+  color: $white;
   font-style: italic;
   @media screen and (max-width: $break-med) {
     font-size: 3rem;
@@ -22,11 +23,15 @@ $alert-black: #3c3c3c;
 @mixin roboto() {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
-  color: white;
+  color: $white;
 }
 
 @mixin niceShadow() {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+@mixin textShadow() {
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -36,6 +41,7 @@ body {
   flex-direction: column;
 }
 
+//Overlay Styles
 .overlay {
   position: relative;
   pointer-events: none;
@@ -60,6 +66,7 @@ body {
   }
 }
 
+//General Wrapper Styles
 .wrapper {
   width: 96%;
   margin-left: 2%;
@@ -86,7 +93,7 @@ body {
     h1 {
       @include playfair();
       text-align: center;
-      text-decoration: underline white;
+      text-decoration: underline $white;
       padding: 15px;
       @media screen and (max-width: $break-small) {
         padding: 15px 5px 5px 5px;
@@ -114,12 +121,39 @@ body {
       .ball {
         width: 10px;
         height: 10px;
-        background-color: white;
+        background-color: $white;
         border-radius: 5px;
-        box-shadow: 3px 3px 3px #0f2027;
+        @include niceShadow();
       }
       .rightBall {
         transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+// Main landing Page
+.main-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  header h1 {
+    @include textShadow();
+  }
+  .mainText {
+    margin: 10px;
+    h1,
+    p {
+      @include roboto();
+      text-align: center;
+      max-width: 800px;
+      margin: 0 30px;
+      a {
+        color: $white;
+        background-color: rgba(255, 255, 255, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        font-style: italic;
       }
     }
   }
@@ -160,7 +194,7 @@ body {
     .cardColdTitle {
       font-family: "Open Sans", sans-serif;
       font-size: 2rem;
-      color: white;
+      color: $white;
       text-align: center;
       text-shadow: 0px 0px 1px rgba(0, 0, 0, 1);
       border-bottom: 2px solid rgba(255, 255, 255, 0.75);
@@ -170,7 +204,7 @@ body {
     .cardColdSlug {
       font-family: "Open Sans", sans-serif;
       font-size: 1rem;
-      color: white;
+      color: $white;
       text-shadow: 0px 0px 1px rgba(0, 0, 0, 1);
       padding-left: 10px;
       padding-right: 10px;
@@ -192,29 +226,7 @@ body {
   }
 }
 
-.main-content {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  .mainText {
-    margin: 10px;
-    h1,
-    p {
-      @include roboto();
-      text-align: center;
-      max-width: 800px;
-      margin: 0 30px;
-      a {
-        color: white;
-        background-color: rgba(255, 255, 255, 0.35);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        font-style: italic;
-      }
-    }
-  }
-}
-
+//Contact Page
 .contact {
   width: 420px;
   @media screen and (max-width: $break-small) {
