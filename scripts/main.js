@@ -55,7 +55,11 @@ const submitContactResponse = data => {
 };
 
 const submitContact = () => {
-  coldAjax("GET", "ajaxScripts/mail.php", submitContactResponse);
+  let name = document.querySelector("#name").value;
+  let email = document.querySelector("#email").value;
+  let message = document.querySelector("#message").value;
+
+  coldAjax("GET", "ajaxScripts/mail.php?name=" + name + "&email=" + email + "&message=" + message, submitContactResponse);
 };
 
 //Event Listeners
