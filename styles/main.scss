@@ -239,6 +239,7 @@ body {
   a,
   label {
     @include roboto();
+    transition: 0.2s;
   }
   form {
     margin: 20px 0;
@@ -253,7 +254,8 @@ body {
       align-items: flex-start;
       flex-direction: column;
       label,
-      input {
+      input,
+      textarea {
         margin: 10px 0;
       }
       input,
