@@ -143,7 +143,8 @@ const getAverageImageColor = imgEl => {
   try {
     data = context.getImageData(0, 0, width, height);
   } catch (e) {
-    /* security error, image on different domain */ alert("x");
+    /* security error, image on different domain */
+    console.log("unsupported context - unable to get average image color");
     return "unsupported context";
   }
 
