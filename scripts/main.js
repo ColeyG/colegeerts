@@ -33,6 +33,9 @@ let images = document.querySelectorAll(".cardCold img"),
 // Configuration object
 const config = {
   pageTimer: 500,
+  defaultAlertColor: "#3c3c3c",
+  cautionAlertColor: "#DEEFB7",
+  errorAlertColor: "#B3001B",
 };
 
 // Add class utility function
@@ -62,26 +65,38 @@ const pageSwitch = page => {
 };
 
 // Popup alert function
-const pageAlert = alertText => {
+const pageAlert = (alertText, offset = config.pageTimer, color = config.defaultAlertColor) => {
   console.log(alertText);
   setTimeout(() => {
-    let alertPopupText = document.querySelector(".alert-popup-text");
+    let alertPopup = document.querySelector(".alert-popup"),
+      alertPopupText = document.querySelector(".alert-popup-text");
+    alertPopup.style.backgroundColor = color;
     alertPopupText.innerHTML = alertText;
     alertPopup.style.bottom = 100 + "px";
     setTimeout(() => {
       alertPopup.style.bottom = -150 + "px";
     }, config.pageTimer * 4);
-  }, config.pageTimer * 2);
+  }, offset * 2);
 };
 
 // Contact submission
 const submitContact = () => {
-  let name = document.querySelector("#name").value;
-  let email = document.querySelector("#email").value;
-  let message = document.querySelector("#message").value;
+  let name = document.querySelector("#name").value,
+    email = document.querySelector("#email").value,
+    message = document.querySelector("#message").value,
+    error = "";
 
-  //TODO: Add actual validation here
-  coldAjax("GET", "ajaxScripts/mail.php?name=" + name + "&email=" + email + "&message=" + message, submitContactResponse);
+  if (name === "" || email === "" || message === "") {
+    if (error === "") {
+      error = "Missing one or more field!";
+    }
+  }
+
+  if (error === "") {
+    coldAjax("GET", "ajaxScripts/mail.php?name=" + name + "&email=" + email + "&message=" + message, submitContactResponse);
+  } else {
+    pageAlert(error, 0, config.errorAlertColor);
+  }
 };
 
 // Callback function for contact ajax call
@@ -122,7 +137,7 @@ const getAverageImageColor = imgEl => {
   try {
     data = context.getImageData(0, 0, width, height);
   } catch (e) {
-    /* security error, img on different domain */ alert("x");
+    /* security error, image on different domain */ alert("x");
     return "unsupported context";
   }
 
