@@ -92,6 +92,12 @@ const submitContact = () => {
     }
   }
 
+  if (!email.includes("@") || !email.includes(".")) {
+    if (error === "") {
+      error = "Not a valid email address!";
+    }
+  }
+
   if (error === "") {
     coldAjax("GET", "ajaxScripts/mail.php?name=" + name + "&email=" + email + "&message=" + message, submitContactResponse);
   } else {
@@ -107,7 +113,7 @@ const submitContactResponse = data => {
     pageSwitch("main-content");
   } else if (data.includes("failed")) {
     console.log("failed mail submission");
-    pageAlert("Failed to Send Message");
+    pageAlert("Failed to Send Message", 0, config.errorAlertColor);
   }
   console.log(data);
 };
