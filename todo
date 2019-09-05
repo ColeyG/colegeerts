@@ -3,4 +3,5 @@
 [ ] Add a cms element ?
 [ ] Background
 [X] Colored shadows on projects
-[ ] js/php mail validation
+[X] js mail validation
+[ ] php mail validation
