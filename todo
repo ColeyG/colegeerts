@@ -1,5 +1,6 @@
 [ ] Create prod/dev compile task
-[ ] Run validators
+[ ] Run css/html validators
 [ ] Add a cms element ?
 [ ] Background
-[ ] Colored shadows on projects
+[X] Colored shadows on projects
+[ ] js/php mail validation
