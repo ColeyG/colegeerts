@@ -180,7 +180,6 @@ pageButtons.forEach(element => {
 images.forEach(element => {
   element.parentNode.style.backgroundImage = "url(" + element.src + ")";
   let averageColor = getAverageImageColor(element);
-  console.log(averageColor.r);
   element.parentNode.style.boxShadow = "5px 5px 10px rgba(0, 0, 0, .75), 5px 5px 10px rgba(" + averageColor.r + "," + averageColor.g + "," + averageColor.b + ",.75)";
   element.remove();
 });
