@@ -1,5 +1,5 @@
 [ ] Create prod/dev compile task
-[ ] Run css/html validators
+[X] Run css/html validators
 [ ] Add a cms element ?
 [ ] Background
 [X] Colored shadows on projects
@@ -7,4 +7,4 @@
 [ ] php mail validation
 [ ] SSL Cert
 [ ] smooth animation
-[ ] FOUC issue
+[X] FOUC issue

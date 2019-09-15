@@ -186,3 +186,5 @@ images.forEach(element => {
 
 // Contact submission button
 contactButton.addEventListener("click", submitContact, false);
+
+pageSwitch("main-content");
