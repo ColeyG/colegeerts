@@ -4,3 +4,5 @@ reminders/php/error_log
 node_modules
 .sass-cache
 styles/main.css.map
+homework
+.ftpquota
