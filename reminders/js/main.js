@@ -38,18 +38,38 @@ function removeItem(e) {
 }
 
 function submitAct() {
-  coldAjax("GET", "ajaxScripts/sendVal.php?thing=" + thing.value + "&time=" + time.value, returned);
+  fetch("ajaxScripts/sendVal.php?thing=" + thing.value + "&time=" + time.value, { method: "GET" })
+    .then(resp => {
+      return resp.text();
+    })
+    .then(data => {
+      returned(data);
+    });
 }
 
 function saveAll() {
   let allItems = document.querySelectorAll(".items ul li");
   let sortVal = 0;
-  console.log(allItems);
+  let sort = "";
+  let sortValues = "";
   allItems.forEach(element => {
     sortVal++;
-    let sort = element.id.replace("li", "");
-    coldAjax("GET", "ajaxScripts/sort.php?sort=" + sort + "&sortVal=" + sortVal, sortCallback);
+    sort += element.id.replace("li", "") + ",";
+    sortValues += sortVal + ",";
   });
+
+  sort = sort.slice(0, -1);
+  sortValues = sortValues.slice(0, -1);
+
+  console.log(sort, sortValues);
+
+  fetch("ajaxScripts/sort.php?sort=" + sort + "&sortVal=" + sortValues, { method: "GET" })
+    .then(resp => {
+      return resp.text();
+    })
+    .then(data => {
+      sortCallback(data);
+    });
 }
 
 function sortCallback(data) {

@@ -2,18 +2,17 @@
     $thing=$_GET['sort'];
     $sortVal=$_GET['sortVal'];
 
+    $things = explode(',', $thing);
+    $sortValues = explode(',', $sortVal);
+
     include('../../core-conf.php');
 
-    if (trim($thing)!=""){
-    $subS="UPDATE tbl_todo SET `sort`='{$sortVal}' where `todo_id`='{$thing}'";
+    for($i = 0; $i < count($things); $i++){
+        $subS="UPDATE tbl_todo SET `sort`='{$sortValues[$i]}' where `todo_id`='{$things[$i]}'";
         $subQ=mysqli_query($link,$subS);
     }
 
-    echo $subS;
-    if($subQ){
-        echo 'success';
-    }else{
-        echo 'failure';
-    }
+    echo "complete";
+
     mysqli_close($link);
 ?>
