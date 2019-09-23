@@ -1,4 +1,3 @@
-/* eslint no-unused-vars: "off" */
 function coldAjax(coldAjaxMethod, coldAjaxUrl, coldAjaxProcessor) {
   const coldHttpRequest = new XMLHttpRequest();
 

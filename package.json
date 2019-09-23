@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-csso": "^3.0.1",
-    "gulp-sass": "^4.0.2"
-  },
-  "devDependencies": {
+    "gulp-sass": "^4.0.2",
     "eslint": "^6.4.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2"
