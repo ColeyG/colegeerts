@@ -6,14 +6,14 @@ require '../../core-conf.php';
 
 $delS = "UPDATE tbl_todo SET completion={$code} WHERE todo_id = {$id}";
 if ($code == 3) {
-  $delS = "DELETE FROM tbl_todo WHERE todo_id = {$id}";
+    $delS = "DELETE FROM tbl_todo WHERE todo_id = {$id}";
 }
 $delQ = mysqli_query($link, $delS);
 
 if ($delQ) {
-  echo 'success';
+    echo 'success';
 } else {
-  echo 'failure';
+    echo 'failure';
 }
 
 mysqli_close($link);
