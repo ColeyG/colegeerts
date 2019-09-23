@@ -17,6 +17,7 @@ function coldAjax(coldAjaxMethod, coldAjaxUrl, coldAjaxProcessor) {
 
   function loading() {
     if (!coldHttpRequest) {
+      // eslint-disable-next-line no-alert
       alert('Request Failed!');
     }
     coldHttpRequest.onreadystatechange = processRequest;
