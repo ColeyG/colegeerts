@@ -1,26 +1,27 @@
+/* eslint no-unused-vars: "off" */
 function coldAjax(coldAjaxMethod, coldAjaxUrl, coldAjaxProcessor) {
   const coldHttpRequest = new XMLHttpRequest();
 
+  function processRequest() {
+    if (coldHttpRequest.readyState === XMLHttpRequest.DONE) {
+      if (coldHttpRequest.status === 200) {
+        const data = coldHttpRequest.responseText;
+        const resp = data;
+        coldAjaxProcessor(resp);
+      } else {
+        const resp = 'Failed Request!';
+        coldAjaxProcessor(resp);
+      }
+    }
+  }
+
   function loading() {
     if (!coldHttpRequest) {
-      alert("Request Failed!");
+      alert('Request Failed!');
     }
     coldHttpRequest.onreadystatechange = processRequest;
     coldHttpRequest.open(coldAjaxMethod, coldAjaxUrl, true);
     coldHttpRequest.send();
-  }
-
-  function processRequest() {
-    if (coldHttpRequest.readyState == XMLHttpRequest.DONE) {
-      if (coldHttpRequest.status === 200) {
-        let data = coldHttpRequest.responseText;
-        let resp = data;
-        coldAjaxProcessor(data);
-      } else {
-        let resp = "Failed Request!";
-        coldAjaxProcessor(resp);
-      }
-    }
   }
 
   loading();
