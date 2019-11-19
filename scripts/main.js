@@ -162,10 +162,10 @@ const getAverageImageColor = (imgEl) => {
 
 // Event Listeners
 // Page changing buttons
-pageButtons.forEach((event, element) => {
+pageButtons.forEach((element) => {
   element.addEventListener(
     'click',
-    () => {
+    (event) => {
       pageSwitch(event.target.dataset.page);
     },
     false,
