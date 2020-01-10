@@ -7,7 +7,7 @@ $email = $_GET["email"];
 $message = $_GET["message"];
 
 $subject = $email ." - Message from your DotCom.";
-$body = $name . " at " . $email . " says: " . $message . "<br>IP: " . $_SERVER['REMOTE_ADDR'];
+$body = $name . " at " . $email . " says: " . $message . " IP: " . $_SERVER['REMOTE_ADDR'];
 
 //TODO: add actual validation here
 if ($name !== "" && $email !== "" && $message !== "") {
