@@ -177,7 +177,7 @@
   images.forEach((element) => {
     const averageColor = getAverageImageColor(element);
     element.parentNode.style.backgroundImage = `url(${element.src})`;
-    element.parentNode.style.boxShadow = `5px 5px 10px rgba(0, 0, 0, .75), 5px 5px 10px rgba(${averageColor.r},${averageColor.g},${averageColor.b},.75)`;
+    element.parentNode.style.boxShadow = `3px 3px 10px rgba(0, 0, 0, .45), 5px 5px 10px rgba(${averageColor.r},${averageColor.g},${averageColor.b},.75)`;
     element.remove();
   });
 

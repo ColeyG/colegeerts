@@ -161,6 +161,7 @@ body {
       text-align: center;
       max-width: 800px;
       margin: 0 30px;
+      line-height: 20px;
       a {
         color: $white;
         background-color: rgba(255, 255, 255, 0.35);
@@ -198,10 +199,16 @@ body {
       background-position: center;
       border-radius: 3px;
       transform: rotate3d(0, 0, 0, 15deg);
-      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.35);
       transition: 0.2s;
       opacity: 0.9;
       overflow: hidden;
+      &:hover {
+        z-index: 11;
+        transform: rotate3d(1, 1, 0, 15deg);
+        filter: grayscale(0%);
+        opacity: 1;
+      }
     }
     .cardColdTitle {
       font-family: "Open Sans", sans-serif;
@@ -221,12 +228,6 @@ body {
       padding-left: 10px;
       padding-right: 10px;
       text-align: center;
-    }
-    .cardCold:hover {
-      z-index: 11;
-      transform: scale(1.1);
-      filter: grayscale(0%);
-      opacity: 1;
     }
     .cardCold:active,
     .cardCold:focus {
